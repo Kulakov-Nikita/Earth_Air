@@ -8,7 +8,7 @@ public class Game : MonoBehaviour
     private ResourceLoader resourceLoader;
     void Awake()
     {
-        resourceLoader = gameObject.AddComponent<ResourceLoader>() as ResourceLoader;
+        resourceLoader = new ResourceLoader();
         levelManager = gameObject.AddComponent<LevelManager>() as LevelManager;
         levelManager.loadingLevel(resourceLoader);
     }
