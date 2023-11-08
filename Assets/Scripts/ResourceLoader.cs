@@ -16,4 +16,12 @@ public class ResourceLoader
     {
         return Resources.Load<GameObject>("Prefabs/" + name);
     }
+    public AudioClip loadAudio(string name)
+    {
+        return Resources.Load<AudioClip>("Audio/" + name);
+    }
+    public Canvas loadCanvas(string name)
+    {
+        return Resources.Load<Canvas>("Canvas/" + name);
+    }
 }
