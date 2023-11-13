@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -9,8 +10,13 @@ public class Game : MonoBehaviour
     void Awake()
     {
         resourceLoader = new ResourceLoader();
-        levelManager = gameObject.AddComponent<LevelManager>() as LevelManager;
-        levelManager.loadingLevel(resourceLoader);
+        levelManager = GetComponent<LevelManager>() as LevelManager;
+        //levelManager.loadingLevel(resourceLoader);
+    }
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        SceneManager.LoadSceneAsync("Level Complete");
     }
 
 }

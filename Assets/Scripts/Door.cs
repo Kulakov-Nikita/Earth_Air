@@ -16,14 +16,22 @@ public class Door : MonoBehaviour
     }
     public void onToggleTripped(bool ToggleIsOn)
     {
-        Debug.Log("hello");
-        if(ToggleIsOn) sp.sprite = openedDoor;
-        else sp.sprite = closedDoor;
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        if(isOpen && other.tag == "Player") 
+        if (ToggleIsOn)
         {
+            sp.sprite = openedDoor;
+            isOpen = true;
+        }
+        else
+        {
+            sp.sprite = closedDoor;
+            isOpen = false;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {        
+        if (isOpen && other.tag == "Player") 
+        {
+            
             CharacterGoIn.Invoke();
         }
     }
