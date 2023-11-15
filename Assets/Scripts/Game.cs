@@ -37,10 +37,12 @@ public class Game : MonoBehaviour
     public void OpenPauseMenu()
     {
         PauseMenu.SetActive(true);
-    }
+        Time.timeScale = 0f;
+  }
 
     public void ClosePauseMenu()
     {
         PauseMenu.SetActive(false);
-    }
+        Time.timeScale = 1f;
+  }
 }
