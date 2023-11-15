@@ -79,9 +79,9 @@ public class MenuManager : MonoBehaviour
         Help.SetActive(true);
     }
 
-    public void StartLevel()
+    public void StartLevel(int levelNumber)
     {
-        SceneManager.LoadSceneAsync("Test Level");
+        SceneManager.LoadSceneAsync("DemoLevel");
     }
 
     public void QuitGame()
