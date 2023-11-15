@@ -39,14 +39,14 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetNextChar();
         }
 
-        activeChar.velocity = new Vector2(direction * speed * Time.deltaTime, activeChar.velocity.y);
+        activeChar.velocity = new Vector2(direction * speed * Time.fixedDeltaTime, activeChar.velocity.y);
         activeAnimator.SetFloat("speed", Mathf.Abs(direction));
 
         if (isFacingRight && direction < 0 || !isFacingRight && direction > 0)
