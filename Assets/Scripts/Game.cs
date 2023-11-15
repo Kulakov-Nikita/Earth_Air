@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
 {
     private LevelManager levelManager;
     private ResourceLoader resourceLoader;
-    public GameObject GameOverMenu, LevelCompleteMenu;
+    public GameObject GameOverMenu, LevelCompleteMenu, PauseMenu;
     void Awake()
     {
         resourceLoader = new ResourceLoader();
@@ -24,4 +24,23 @@ public class Game : MonoBehaviour
         GameOverMenu.SetActive(true);
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadSceneAsync("Main Menu");
+    }
+
+    public void Replay()
+    {
+        SceneManager.LoadSceneAsync("DemoLevel");
+    }
+
+    public void OpenPauseMenu()
+    {
+        PauseMenu.SetActive(true);
+    }
+
+    public void ClosePauseMenu()
+    {
+        PauseMenu.SetActive(false);
+    }
 }
