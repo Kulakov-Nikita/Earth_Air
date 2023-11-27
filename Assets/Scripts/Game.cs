@@ -7,12 +7,14 @@ public class Game : MonoBehaviour
 {
     private LevelManager levelManager;
     private ResourceLoader resourceLoader;
+    private AudioManager audioManager;
     public GameObject GameOverMenu, LevelCompleteMenu, PauseMenu;
     void Awake()
     {
         resourceLoader = new ResourceLoader();
         levelManager = GetComponent<LevelManager>() as LevelManager;
-        //levelManager.loadingLevel(resourceLoader);
+        audioManager = GetComponent<AudioManager>() as AudioManager;
+
     }
     public void LevelComplete()
     {
