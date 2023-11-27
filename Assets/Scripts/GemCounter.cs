@@ -7,6 +7,7 @@ public class GemCounter : MonoBehaviour
 
     void Start()
     {
+        gemText.fontSize = 64;
         if (gemText != null)
         {
             gemText.text = "Gems: " + GemManager.gemCount;
