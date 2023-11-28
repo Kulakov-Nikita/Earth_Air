@@ -2117,7 +2117,7 @@ Transform:
   m_GameObject: {fileID: 712437495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.666423, y: -0.7, z: 0}
+  m_LocalPosition: {x: 4.666423, y: 0.3, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5651,7 +5651,7 @@ MonoBehaviour:
   GameOverMenu: {fileID: 441873286}
   LevelCompleteMenu: {fileID: 964527944}
   PauseMenu: {fileID: 479933338}
-  levelName: "1\u200B"
+  levelName: "2\u200B"
 --- !u!114 &2129893834
 MonoBehaviour:
   m_ObjectHideFlags: 0
