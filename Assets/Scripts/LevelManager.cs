@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     public UnityEvent LevelComplete = new UnityEvent();
 
     public int LevelSizeX = 10, LevelSizeY = 10;
-    [SerializeField] private GameObject dirt, grass, slope1, slope2;
+    [SerializeField] private GameObject dirt, grass, slope1, slope2, door, gem;
     public CellType[,] LevelMap;
     public GameObject LeftDownCorner;
 
@@ -26,13 +26,20 @@ public class LevelManager : MonoBehaviour
             for (int x = 0; x < LevelSizeX; x++)
             {
                 GameObject newCell = null;
+                Vector3 shift = Vector3.zero;
 
                 if (LevelMap[y, x] == CellType.Dirt) newCell = dirt;
                 if (LevelMap[y, x] == CellType.Grass) newCell = grass;
                 if (LevelMap[y, x] == CellType.Slope1) newCell = slope1;
                 if (LevelMap[y, x] == CellType.Slope2) newCell = slope2;
+                if (LevelMap[y, x] == CellType.Door)
+                {
+                    newCell = door;
+                    shift = new Vector3(0, 0.3f, 0);
+                }
+                if (LevelMap[y, x] == CellType.Gem) newCell = gem;
 
-                if (newCell != null)Instantiate(newCell, new Vector3(x, y, 0) + LeftDownCorner.transform.position, new Quaternion(0, 0, 0, 0));
+                if(newCell != null)Instantiate(newCell, new Vector3(x, y, 0) + LeftDownCorner.transform.position + shift, new Quaternion(0, 0, 0, 0));
             }
         }
     }

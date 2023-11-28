@@ -939,11 +939,13 @@ MonoBehaviour:
   canvas: {fileID: 1197517846}
   LevelSizeX: 20
   LevelSizeY: 10
-  empty: {fileID: 6204438564941680143, guid: 90345604b55eb71489124d197d791b66, type: 3}
+  empty: {fileID: 6293973483767635648, guid: 90188f5138ba2674782a1493c903f815, type: 3}
   dirt: {fileID: 6293973483767635648, guid: 3b1e7fe3ec0170943874f78ebca23f5d, type: 3}
   grass: {fileID: 8502610696957556099, guid: 5c49aeb3bd5e6cd4c964caedfd4faba5, type: 3}
   slope1: {fileID: 46381436751360693, guid: 24f935268edcc1f40ac2a9f82e102f01, type: 3}
   slope2: {fileID: 1755734906036087153, guid: 31d08fa070d08d84086adcbb7f802298, type: 3}
+  door: {fileID: 6293973483767635648, guid: 1e1b6ed0fdc49de4481ee173508d9485, type: 3}
+  gem: {fileID: 6293973483767635648, guid: d94bb96b3a032a14b9b12e353706687e, type: 3}
   text: {fileID: 452107126}
 --- !u!4 &746083872
 Transform:

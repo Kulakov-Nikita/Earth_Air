@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
-    public Sprite empty, dirt, grass, slope1, slope2;
+    public Sprite empty, dirt, grass, slope1, slope2, door, gem;
     public LavelMacker.CellType cellType = LavelMacker.CellType.Empty;
     public void OnCellClicked()
     {
@@ -30,6 +30,16 @@ public class Cell : MonoBehaviour
             GetComponent<Image>().sprite = slope2;
         }
         else if (cellType == LavelMacker.CellType.Slope2)
+        {
+            cellType = LavelMacker.CellType.Door;
+            GetComponent<Image>().sprite = door;
+        }
+        else if (cellType == LavelMacker.CellType.Door)
+        {
+            cellType = LavelMacker.CellType.Gem;
+            GetComponent<Image>().sprite = gem;
+        }
+        else if (cellType == LavelMacker.CellType.Gem)
         {
             cellType = LavelMacker.CellType.Empty;
             GetComponent<Image>().sprite = empty;
