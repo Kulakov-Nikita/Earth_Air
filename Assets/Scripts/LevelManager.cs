@@ -16,13 +16,23 @@ public class LevelManager : MonoBehaviour
     public int LevelSizeX = 10, LevelSizeY = 10;
     [SerializeField] private GameObject dirt, grass, slope1, slope2;
     public CellType[,] LevelMap;
+    public GameObject LeftDownCorner;
 
-    public void loadingLevel() {
+    public void loadingLevel()
+    {
+        Debug.Log("loadingLevel");
         for (int y = 0; y < LevelSizeY; y++)
         {
             for (int x = 0; x < LevelSizeX; x++)
             {
-                if (LevelMap[y, x] == CellType.Dirt) Instantiate(dirt, new Vector3(x - LevelSizeX / 2, y - LevelSizeY / 2, 0), new Quaternion(0, 0, 0, 0));
+                GameObject newCell = null;
+
+                if (LevelMap[y, x] == CellType.Dirt) newCell = dirt;
+                if (LevelMap[y, x] == CellType.Grass) newCell = grass;
+                if (LevelMap[y, x] == CellType.Slope1) newCell = slope1;
+                if (LevelMap[y, x] == CellType.Slope2) newCell = slope2;
+
+                if (newCell != null)Instantiate(newCell, new Vector3(x, y, 0) + LeftDownCorner.transform.position, new Quaternion(0, 0, 0, 0));
             }
         }
     }

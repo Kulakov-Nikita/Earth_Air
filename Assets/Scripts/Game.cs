@@ -9,12 +9,24 @@ public class Game : MonoBehaviour
     private ResourceLoader resourceLoader;
     private AudioManager audioManager;
     public GameObject GameOverMenu, LevelCompleteMenu, PauseMenu;
+    private LevelSaver levelSaver;
+    public string levelName;
     void Awake()
     {
         resourceLoader = new ResourceLoader();
+        levelSaver = GetComponent<LevelSaver>() as LevelSaver;
         levelManager = GetComponent<LevelManager>() as LevelManager;
         audioManager = GetComponent<AudioManager>() as AudioManager;
 
+        levelSaver.Load(levelName);
+
+    }
+    private void Start()
+    {
+        levelManager.LevelMap = levelSaver.data.LevelMap;
+        levelManager.LevelSizeX = levelSaver.data.LevelSizeX;
+        levelManager.LevelSizeY = levelSaver.data.LevelSizeY;
+        levelManager.loadingLevel();
     }
     public void LevelComplete()
     {

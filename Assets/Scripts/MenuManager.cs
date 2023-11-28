@@ -13,7 +13,6 @@ public class MenuManager : MonoBehaviour
     public GameObject LavelList;
     public GameObject Settings;
     public GameObject Achievements;
-    public GameObject Help;
     public Slider[] sliders;
 
     private void Awake()
@@ -48,7 +47,6 @@ public class MenuManager : MonoBehaviour
         LavelList.SetActive(isActive);
         Settings.SetActive(isActive);
         Achievements.SetActive(isActive);
-        Help.SetActive(isActive);
     }
     public void OpenMainMenu()
     {
@@ -73,15 +71,14 @@ public class MenuManager : MonoBehaviour
         Achievements.SetActive(true);
     }
 
-    public void OpenHelp()
+    public void OpenLevelMaker()
     {
-        SetActiveAll(false);
-        Help.SetActive(true);
+        SceneManager.LoadSceneAsync("LevelMacker");
     }
 
     public void StartLevel(int levelNumber)
     {
-        SceneManager.LoadSceneAsync("DemoLevel");
+        SceneManager.LoadSceneAsync(""+levelNumber);
     }
 
     public void QuitGame()
