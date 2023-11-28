@@ -9,9 +9,9 @@ using UnityEngine.UI;
 public class LavelMacker : MonoBehaviour
 {
     public Canvas canvas;
-    public enum CellType { Empty, Dirt, Grass, Slope1, Slope2 }
+    public enum CellType { Empty, Dirt, Grass, Slope1, Slope2, Door, Gem }
     public int LevelSizeX=10,LevelSizeY=10;
-    [SerializeField] private GameObject empty, dirt, grass, slope1, slope2;
+    [SerializeField] private GameObject empty, dirt, grass, slope1, slope2, door, gem;
     public CellType[,] LevelMap;
     private GameObject[,] LevelMapGO;
     private LevelSaver levelSaver;
@@ -46,6 +46,8 @@ public class LavelMacker : MonoBehaviour
                 if (LevelMap[y, x] == CellType.Grass) newCell = grass;
                 if (LevelMap[y, x] == CellType.Slope1) newCell = slope1;
                 if (LevelMap[y, x] == CellType.Slope2) newCell = slope2;
+                if (LevelMap[y, x] == CellType.Door) newCell = door;
+                if (LevelMap[y, x] == CellType.Gem) newCell = gem;
                 LevelMapGO[y, x] = Instantiate(newCell, new Vector3(x * 100 + canvas.transform.position.x / 4, y * 100 + canvas.transform.position.y / 5, 0), new Quaternion(0, 0, 0, 0)) as GameObject;
                 LevelMapGO[y, x].transform.SetParent(canvas.transform);
                 LevelMapGO[y, x].GetComponent<Cell>().cellType = LevelMap[y, x];
