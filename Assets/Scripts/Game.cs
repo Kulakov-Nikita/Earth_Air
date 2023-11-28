@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
         levelManager = GetComponent<LevelManager>() as LevelManager;
         audioManager = GetComponent<AudioManager>() as AudioManager;
 
+        audioManager.LoadSettings();
         levelSaver.Load(levelName);
 
     }
@@ -34,8 +35,8 @@ public class Game : MonoBehaviour
     }
     public void GameOver()
     {
-        //Debug.Log("Game Over"); 
         GameOverMenu.SetActive(true);
+        PlayerPrefs.SetInt("DeathCounter", PlayerPrefs.GetInt("DeathCounter", 0) + 1);
     }
 
     public void ReturnToMenu()
@@ -45,7 +46,7 @@ public class Game : MonoBehaviour
 
     public void Replay()
     {
-        SceneManager.LoadSceneAsync("DemoLevel");
+        SceneManager.LoadSceneAsync("" + levelName);
     }
 
     public void OpenPauseMenu()

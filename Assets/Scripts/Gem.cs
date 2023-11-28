@@ -14,6 +14,8 @@ public class Gem : MonoBehaviour
             // Дополнительно можно воспроизвести анимацию или звук сбора гема
 
             Destroy(gameObject);
+
+            PlayerPrefs.SetInt("GemCounter", PlayerPrefs.GetInt("GemCounter", 0) + 1);
         }
     }
 }

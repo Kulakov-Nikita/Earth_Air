@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LavelMacker : MonoBehaviour
 {
@@ -77,12 +78,12 @@ public class LavelMacker : MonoBehaviour
         levelSaver.data.LevelMap = LevelMap;
         levelSaver.data.LevelSizeX = LevelSizeX;
         levelSaver.data.LevelSizeY = LevelSizeY;
-        levelSaver.Save(text.GetComponent<TextMeshProUGUI>().text);
+        levelSaver.Save(text.GetComponent<Text>().text);
     }
     public void LoadLevel()
     {
         DestroyLevel();
-        levelSaver.Load(text.GetComponent<TextMeshProUGUI>().text);
+        levelSaver.Load(text.GetComponent<Text>().text);
         LevelSizeX = levelSaver.data.LevelSizeX;
         LevelSizeY = levelSaver.data.LevelSizeY;
         LevelMap = levelSaver.data.LevelMap;
