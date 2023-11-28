@@ -10,7 +10,7 @@ public class EarthCharScript : MonoBehaviour
     private Animator animator;
     [SerializeField] float speed = 400;
     bool isFacingRight = true;
-    bool isSteady = false;
+    public bool isSteady = false;
     public bool isAirActive = true;
 
     private void Awake()

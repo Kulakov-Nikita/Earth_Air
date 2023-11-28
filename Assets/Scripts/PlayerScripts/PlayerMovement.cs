@@ -14,11 +14,6 @@ public class PlayerMovement : MonoBehaviour
         //AirCharacter = GameObject.FindGameObjectWithTag("AirCharacter").GetComponent<AirCharScript>();
         //EarthCharacter = GameObject.FindGameObjectWithTag("EarthCharacter").GetComponent<EarthCharScript>();
 
-        if (AirCharacter != null)
-            Debug.Log("AAAAA");
-
-        if (EarthCharacter != null)
-            Debug.Log("A2A2A2A2A");
 
     }
 
@@ -40,14 +35,13 @@ public class PlayerMovement : MonoBehaviour
         if(AirCharacter.isAirActive) AirDirection = Input.GetAxisRaw("Horizontal");
         else EarthDirection = Input.GetAxisRaw("Horizontal");
         AirBody.velocity = new Vector2(AirDirection * AirSpeed * Time.fixedDeltaTime, AirBody.velocity.y);
-        AirAnimator.SetFloat("speed", Mathf.Abs(AirDirection));
+        //AirAnimator.SetFloat("speed", Mathf.Abs(AirDirection));
 
         //сделать то же с землей
         EarthBody.velocity = new Vector2(EarthDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
-        EarthAnimator.SetFloat("speed", Mathf.Abs(EarthDirection));
+        //EarthAnimator.SetFloat("speed", Mathf.Abs(EarthDirection));
         //на пробел в свитчере отключать управление героям
 
-        //EarthCharacter.
     }
 
 

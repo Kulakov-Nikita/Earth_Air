@@ -5,8 +5,10 @@ using UnityEngine;
 public class EarthAbilityHolder : MonoBehaviour
 {
     [SerializeField] private Ability ability;
-    [SerializeField] private float cooldownTime;
-    [SerializeField] private float activeTime;
+    private float cooldownTime;
+    private float activeTime;
+    GameObject earthChar;
+    AirCharScript airChar;
 
     enum AbilityState
     {
@@ -16,11 +18,12 @@ public class EarthAbilityHolder : MonoBehaviour
     }
 
     private AbilityState state = AbilityState.ready;
-    [SerializeField] private KeyCode key = KeyCode.A; 
-    // Start is called before the first frame update
+    [SerializeField] private KeyCode key = KeyCode.Space;
+ 
     void Start()
     {
-        
+        earthChar = GameObject.FindGameObjectWithTag("EarthCharacter");
+        airChar = GameObject.FindGameObjectWithTag("AirCharacter").GetComponent<AirCharScript>();
     }
 
     // Update is called once per frame
@@ -30,11 +33,12 @@ public class EarthAbilityHolder : MonoBehaviour
             switch(state)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key))
+                    if (Input.GetKeyDown(key) && !airChar.isAirActive)
                     {
-                        ability.Activate(gameObject);
+                        ability.Activate(earthChar);
                         state = AbilityState.active;
                         activeTime = ability.activeTime;
+                    Debug.Log(activeTime);
                     }
                     break;
                 case AbilityState.active:

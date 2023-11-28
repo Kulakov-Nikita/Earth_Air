@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Ability : ScriptableObject
 {
-    public new string name { get; private set; }
-    public float cooldownTime { get; private set; }
-    public float activeTime { get; private set; }
+    public string name;
+    public float cooldownTime;
+    public float activeTime;
 
     public virtual void Activate(GameObject parent)
     {

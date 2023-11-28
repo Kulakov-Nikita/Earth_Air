@@ -529,6 +529,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 222366601149596249, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9661107
+      objectReference: {fileID: 0}
+    - target: {fileID: 222366601149596249, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 222366601149596249, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4032567369080121469, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.893751
@@ -575,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948400221230950386, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: AirCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 8483913403599840614, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
       propertyPath: speed
@@ -586,13 +598,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2123910168}
     - target: {fileID: 8483913403599840614, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483913403599840614, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
       propertyPath: EarthAnimator
       value: 
       objectReference: {fileID: 2123910169}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7948400221230950386, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1956549478}
+    - targetCorrespondingSourceObject: {fileID: 7948400221230950386, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1956549479}
   m_SourcePrefab: {fileID: 100100000, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
 --- !u!1 &314000720
 GameObject:
@@ -1899,7 +1921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 750, y: -450}
+  m_AnchoredPosition: {x: 750, y: -450.00003}
   m_SizeDelta: {x: -2300, y: -954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644897324
@@ -2627,7 +2649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -950, y: -450}
+  m_AnchoredPosition: {x: -950, y: -450.00003}
   m_SizeDelta: {x: -2300, y: -954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &857585375
@@ -3928,7 +3950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1000, y: -450}
+  m_AnchoredPosition: {x: 1000, y: -450.00003}
   m_SizeDelta: {x: -2300, y: -954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667418634
@@ -4141,6 +4163,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2870664378091804786, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870664378091804786, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      propertyPath: m_Color.g
+      value: 0.17543292
+      objectReference: {fileID: 0}
+    - target: {fileID: 2870664378091804786, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4433962
+      objectReference: {fileID: 0}
     - target: {fileID: 3799503140617894483, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
       propertyPath: AirRB
       value: 
@@ -4148,6 +4182,10 @@ PrefabInstance:
     - target: {fileID: 3799503140617894483, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
       propertyPath: speed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799503140617894483, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3799503140617894483, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
       propertyPath: AirAnimator
@@ -4199,12 +4237,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7490548166327208211, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: EarthCharacter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7490548166327208211, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123910174}
+    - targetCorrespondingSourceObject: {fileID: 7490548166327208211, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123910175}
+    - targetCorrespondingSourceObject: {fileID: 7490548166327208211, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2123910176}
   m_SourcePrefab: {fileID: 100100000, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
 --- !u!1 &1693210093
 GameObject:
@@ -4876,7 +4923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -700, y: -450}
+  m_AnchoredPosition: {x: -700, y: -450.00003}
   m_SizeDelta: {x: -2300, y: -954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899939980
@@ -5244,6 +5291,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7948400221230950386, guid: 2e4a0b48daa403e4d9533bdcf79cda46, type: 3}
   m_PrefabInstance: {fileID: 179930454}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1956549478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956549473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742f6068c3390aa4e816ac1b21d06431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAirActive: 1
+  speed: 100
+--- !u!114 &1956549479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956549473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c870bb2fb0f7f7648b253e6e44ddcaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AirCharacter: {fileID: 1956549478}
+  EarthCharacter: {fileID: 2123910175}
 --- !u!1 &1964250567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,6 +5598,50 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5532453405996406277, guid: e1fd6914eb3dd5e4a83572304f9f5f70, type: 3}
   m_PrefabInstance: {fileID: 1680146467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2123910174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355227450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038ca229749cad46a2349eb4b0c47d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 7c2fc87b24dd8dc428e2e1b17c494907, type: 2}
+  cooldownTime: 0
+  activeTime: 0
+  key: 102
+--- !u!114 &2123910175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355227450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b30a1ee6e185d54e9e72082fe0428de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  isAirActive: 1
+--- !u!114 &2123910176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355227450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c870bb2fb0f7f7648b253e6e44ddcaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AirCharacter: {fileID: 1956549478}
+  EarthCharacter: {fileID: 2123910175}
 --- !u!1 &2129701559
 GameObject:
   m_ObjectHideFlags: 0
@@ -5749,6 +5868,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  LevelSizeX: 10
+  LevelSizeY: 10
+  dirt: {fileID: 0}
+  grass: {fileID: 0}
+  slope1: {fileID: 0}
+  slope2: {fileID: 0}
 --- !u!114 &2129893835
 MonoBehaviour:
   m_ObjectHideFlags: 0

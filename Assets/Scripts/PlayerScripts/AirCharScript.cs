@@ -36,9 +36,7 @@ public class AirCharScript : MonoBehaviour
 
     public void ControlsEnable() { controls.Enable(); }
     public void ControlsDisable() { controls.Disable(); }
-    public float GetSpeed() {
-        Debug.Log(speed);
-        return speed; }
+    public float GetSpeed() { return speed; }
     public Rigidbody2D getBody() { return body; }
     public float GetDirection() { return direction; }
     public void SetDir(float dir) { direction = dir; }

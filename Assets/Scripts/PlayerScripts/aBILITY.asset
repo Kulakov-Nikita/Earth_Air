@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cd1727fe67fdc04f91dc5456adf490d, type: 3}
   m_Name: aBILITY
   m_EditorClassIdentifier: 
-  activeTime: 2
+  name: EarthSteady
   cooldownTime: 5
+  activeTime: 10
