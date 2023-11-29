@@ -59,4 +59,33 @@ public class AudioManager : MonoBehaviour
             soundSources[i].clip = clips[i + 1];
         }
     }
+
+
+}
+
+class GameConfig
+{
+
+}
+
+static class SaveLoader
+{
+    private const string KEY_CONFIG = "name_project";
+
+    public static void Save(GameConfig config)
+    {
+        string configToSave = JsonUtility.ToJson(config);
+        PlayerPrefs.SetString(KEY_CONFIG, configToSave);
+        PlayerPrefs.Save();
+    }
+
+    public static GameConfig Load()
+    {
+        if (!PlayerPrefs.HasKey(KEY_CONFIG))
+            return new GameConfig();
+
+        string configToLoad = PlayerPrefs.GetString(KEY_CONFIG);
+        GameConfig config = JsonUtility.FromJson<GameConfig>(configToLoad);
+        return config;
+    }
 }

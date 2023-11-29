@@ -14,8 +14,8 @@ public class Game : MonoBehaviour
     void Awake()
     {
         resourceLoader = new ResourceLoader();
-        levelSaver = GetComponent<LevelSaver>() as LevelSaver;
-        levelManager = GetComponent<LevelManager>() as LevelManager;
+        levelSaver = GetComponent<LevelSaver>();
+        levelManager = GetComponent<LevelManager>();
         audioManager = GetComponent<AudioManager>() as AudioManager;
 
         audioManager.LoadSettings();
