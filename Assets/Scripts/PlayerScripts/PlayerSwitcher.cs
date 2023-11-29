@@ -15,7 +15,7 @@ public class PlayerSwitcher : MonoBehaviour
         else isAirActive = true;
 
         AirCharacter.isAirActive = isAirActive;
-        EarthCharacter.isAirActive = isAirActive;
+        EarthCharacter.isAirActive = !isAirActive;
     }
 
 }

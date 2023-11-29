@@ -13,5 +13,11 @@ public class SteadyAbility : Ability
         earthCharScript.SetIsSteady(true);
         Debug.Log(earthCharScript.GetIsSteady());
     }
+    public void Disactivate(GameObject parent)
+    {
+
+        EarthCharScript earthCharScript = parent.GetComponent<EarthCharScript>();
+        earthCharScript.SetIsSteady(false);
+    }
 
 }

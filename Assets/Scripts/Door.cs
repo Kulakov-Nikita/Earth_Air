@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {        
-        if (isOpen && other.tag == "Player") 
+        if (isOpen && other.tag == "AirCharacter" && other.tag == "EarthCharacter") 
         {
             
             CharacterGoIn.Invoke();

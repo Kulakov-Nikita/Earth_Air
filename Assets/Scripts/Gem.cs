@@ -6,7 +6,7 @@ public class Gem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("AirCharacter") || other.CompareTag("EarthCharacter"))
         {
             GemManager.AddGems(gemValue);
             Debug.Log("GemCount: " + GemManager.gemCount);

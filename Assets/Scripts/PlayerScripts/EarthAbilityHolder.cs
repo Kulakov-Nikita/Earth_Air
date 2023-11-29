@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EarthAbilityHolder : MonoBehaviour
 {
-    [SerializeField] private Ability ability;
+    [SerializeField] private SteadyAbility ability;
     private float cooldownTime;
     private float activeTime;
     GameObject earthChar;
-    AirCharScript airChar;
+    EarthCharScript earthCharSc;
+    public bool isAbilityActive {get; private set; }
 
     enum AbilityState
     {
@@ -22,8 +23,16 @@ public class EarthAbilityHolder : MonoBehaviour
  
     void Start()
     {
-        earthChar = GameObject.FindGameObjectWithTag("EarthCharacter");
-        airChar = GameObject.FindGameObjectWithTag("AirCharacter").GetComponent<AirCharScript>();
+        isAbilityActive = false;
+        earthCharSc = GetComponent<EarthCharScript>();
+        earthChar = gameObject;
+    }
+    public void OnAbilityActive()
+    {
+        if (earthCharSc.isAirActive)
+        {
+            isAbilityActive = true;
+        }
     }
 
     // Update is called once per frame
@@ -33,12 +42,12 @@ public class EarthAbilityHolder : MonoBehaviour
             switch(state)
             {
                 case AbilityState.ready:
-                    if (Input.GetKeyDown(key) && !airChar.isAirActive)
+                    if (isAbilityActive && earthCharSc.isAirActive)
                     {
                         ability.Activate(earthChar);
                         state = AbilityState.active;
                         activeTime = ability.activeTime;
-                    Debug.Log(activeTime);
+                        isAbilityActive = false;
                     }
                     break;
                 case AbilityState.active:
@@ -50,6 +59,7 @@ public class EarthAbilityHolder : MonoBehaviour
                     {
                     state = AbilityState.cooldown;
                     cooldownTime = ability.cooldownTime;
+                    ability.Disactivate(earthChar);
                     }
                     break;
                 case AbilityState.cooldown:
@@ -60,6 +70,7 @@ public class EarthAbilityHolder : MonoBehaviour
                 else
                 {
                     state = AbilityState.ready;
+                    activeTime = 2f;
                 }
                 break;
             }

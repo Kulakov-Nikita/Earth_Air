@@ -7,9 +7,10 @@ using static LavelMacker;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private GameObject playerEarth, playerAir;
-    [SerializeField] private GameObject entities;
-    [SerializeField] private GameObject map;
+    [SerializeField] private AirCharScript playerAir;
+    [SerializeField] private EarthCharScript playerEarth;
+    [SerializeField] private Fan fan;
+    [SerializeField] private GameObject Wind;
     private int ReadyPlayerCounter = 0;
     public UnityEvent LevelComplete = new UnityEvent();
 
@@ -18,6 +19,10 @@ public class LevelManager : MonoBehaviour
     public CellType[,] LevelMap;
     public GameObject LeftDownCorner;
 
+    public void CreateWind()
+    {
+        if (fan.isPlayerInside && playerAir.isAirActive)Instantiate(Wind, fan.transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+    }
     public void loadingLevel()
     {
         Debug.Log("loadingLevel");

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WindPillarScript : MonoBehaviour
 {
+    private float LifeTime = 10f;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Rigidbody2D rg = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -16,6 +17,12 @@ public class WindPillarScript : MonoBehaviour
                 rg.gravityScale = -1.2f;
             }
         }     
+    }
+
+    private void Update()
+    {
+        if (LifeTime > 0) LifeTime -= Time.deltaTime;
+        else Destroy(gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
