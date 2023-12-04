@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using static LavelMacker;
 
 public class LevelManager : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class LevelManager : MonoBehaviour
 
     public int LevelSizeX = 10, LevelSizeY = 10;
     [SerializeField] private GameObject dirt, grass, slope1, slope2, door, gem;
-    public CellType[,] LevelMap;
+    public Cell.CellType[,] LevelMap;
     public GameObject LeftDownCorner;
 
     public void CreateWind()
@@ -25,7 +24,6 @@ public class LevelManager : MonoBehaviour
     }
     public void loadingLevel()
     {
-        Debug.Log("loadingLevel");
         for (int y = 0; y < LevelSizeY; y++)
         {
             for (int x = 0; x < LevelSizeX; x++)
@@ -33,16 +31,16 @@ public class LevelManager : MonoBehaviour
                 GameObject newCell = null;
                 Vector3 shift = Vector3.zero;
 
-                if (LevelMap[y, x] == CellType.Dirt) newCell = dirt;
-                if (LevelMap[y, x] == CellType.Grass) newCell = grass;
-                if (LevelMap[y, x] == CellType.Slope1) newCell = slope1;
-                if (LevelMap[y, x] == CellType.Slope2) newCell = slope2;
-                if (LevelMap[y, x] == CellType.Door)
+                if (LevelMap[y, x] == Cell.CellType.Dirt) newCell = dirt;
+                if (LevelMap[y, x] == Cell.CellType.Grass) newCell = grass;
+                if (LevelMap[y, x] == Cell.CellType.Slope1) newCell = slope1;
+                if (LevelMap[y, x] == Cell.CellType.Slope2) newCell = slope2;
+                if (LevelMap[y, x] == Cell.CellType.Door)
                 {
                     newCell = door;
                     shift = new Vector3(0, 0.3f, 0);
                 }
-                if (LevelMap[y, x] == CellType.Gem) newCell = gem;
+                if (LevelMap[y, x] == Cell.CellType.Gem) newCell = gem;
 
                 if(newCell != null)Instantiate(newCell, new Vector3(x, y, 0) + LeftDownCorner.transform.position + shift, new Quaternion(0, 0, 0, 0));
             }

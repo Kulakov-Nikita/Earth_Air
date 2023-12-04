@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using static LavelMacker;
 
-public class LevelSaver : MonoBehaviour
+public class LevelSaver:MonoBehaviour
 {
     [System.Serializable]
     public class LevelMapArray
     {
-        public int LevelSizeX = 10, LevelSizeY = 10;
-        public CellType[,] LevelMap;
+        public int LevelSizeX, LevelSizeY;
+        public Cell.CellType[,] LevelMap;
     }
     public LevelMapArray data;
     public void Save(string levelName)
@@ -20,7 +19,7 @@ public class LevelSaver : MonoBehaviour
         using (FileStream fs = new FileStream(Application.dataPath + "/" + levelName + ".lvl", FileMode.OpenOrCreate))
         {
             formatter.Serialize(fs, data);
-            //Debug.Log(Application.dataPath + "/LevelMapArray.lvl");
+            Debug.Log(levelName + ".lvl - Saved");
         }
     }
     public void Load(string levelName)

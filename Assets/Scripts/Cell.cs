@@ -5,44 +5,20 @@ using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
-    public Sprite empty, dirt, grass, slope1, slope2, door, gem;
-    public LavelMacker.CellType cellType = LavelMacker.CellType.Empty;
+    public enum CellType { Empty, Dirt, Grass, Slope1, Slope2, Door, Gem };
+    public static int NumberOfCellTypes = 7;
+
+    public ResourseManager resourseManager;
+
+    public CellType cellType = CellType.Empty;
     public void OnCellClicked()
     {
-        if (cellType == LavelMacker.CellType.Empty)
-        {
-            cellType = LavelMacker.CellType.Dirt;
-            GetComponent<Image>().sprite = dirt;
-        }
-        else if (cellType == LavelMacker.CellType.Dirt)
-        {
-            cellType = LavelMacker.CellType.Grass;
-            GetComponent<Image>().sprite = grass;
-        }
-        else if (cellType == LavelMacker.CellType.Grass)
-        {
-            cellType = LavelMacker.CellType.Slope1;
-            GetComponent<Image>().sprite = slope1;
-        }
-        else if (cellType == LavelMacker.CellType.Slope1)
-        {
-            cellType = LavelMacker.CellType.Slope2;
-            GetComponent<Image>().sprite = slope2;
-        }
-        else if (cellType == LavelMacker.CellType.Slope2)
-        {
-            cellType = LavelMacker.CellType.Door;
-            GetComponent<Image>().sprite = door;
-        }
-        else if (cellType == LavelMacker.CellType.Door)
-        {
-            cellType = LavelMacker.CellType.Gem;
-            GetComponent<Image>().sprite = gem;
-        }
-        else if (cellType == LavelMacker.CellType.Gem)
-        {
-            cellType = LavelMacker.CellType.Empty;
-            GetComponent<Image>().sprite = empty;
-        }
+        cellType++;
+        if ((int)cellType >= NumberOfCellTypes) cellType = CellType.Empty;
+        GetComponent<Image>().sprite = resourseManager.GetSprite(cellType);
+    }
+    public void UpdateSprite()
+    {
+        GetComponent<Image>().sprite = resourseManager.GetSprite(cellType);
     }
 }
