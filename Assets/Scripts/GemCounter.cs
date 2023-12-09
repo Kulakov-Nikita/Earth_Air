@@ -1,33 +1,104 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class GemCounter : MonoBehaviour
 {
-    public Text gemText;
+    [SerializeField]
+    private Text gemText;
+
+    private int gemCount = 0;
+    private string jsonDataPath;
+
+    public static event System.Action<int> OnGemCountChanged;
+
+    private static GemCounter _instance;
+    public static GemCounter Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GemCounter>();
+            }
+            return _instance;
+        }
+    }
+
+    public int GemCount
+    {
+        get { return gemCount; }
+    }
+
+    void OnEnable()
+    {
+        // Подписываемся на событие при включении объекта
+        OnGemCountChanged += UpdateGemCountUI;
+    }
+
+    void OnDisable()
+    {
+        // Отписываемся от события при выключении объекта
+        OnGemCountChanged -= UpdateGemCountUI;
+    }
 
     void Start()
     {
         gemText.fontSize = 64;
-        if (gemText != null)
+        jsonDataPath = Application.persistentDataPath + "/gemData.json";
+        LoadGemCount();
+        UpdateGemCountUI(gemCount);
+    }
+
+    private void LoadGemCount()
+    {
+        if (File.Exists(jsonDataPath))
         {
-            gemText.text = "Gems: " + GemManager.gemCount;
-        }
-        else
-        {
-            Debug.LogError("gemText is null in Start!");
+            string jsonData = File.ReadAllText(jsonDataPath);
+            GemData data = JsonUtility.FromJson<GemData>(jsonData);
+            gemCount = data.gemCount;
+            // Вызываем событие при загрузке, чтобы обновить UI
+            if (OnGemCountChanged != null)
+            {
+                OnGemCountChanged.Invoke(gemCount);
+            }
         }
     }
 
-    void Update()
+    private void SaveGemCount()
+    {
+        GemData data = new GemData { gemCount = gemCount };
+        string jsonData = JsonUtility.ToJson(data);
+        File.WriteAllText(jsonDataPath, jsonData);
+    }
+
+    public void AddGems(int amount)
+    {
+        gemCount += amount;
+        SaveGemCount();
+        if (OnGemCountChanged != null)
+        {
+            OnGemCountChanged.Invoke(gemCount);
+        }
+        Debug.Log("GemCount: " + gemCount);
+    }
+
+    private void UpdateGemCountUI(int count)
     {
         if (gemText != null)
         {
-            gemText.text = "Gems: " + GemManager.gemCount;
+            gemText.text = "Gems: " + count;
         }
         else
         {
-            Debug.LogError("gemText is null in Update!");
+            Debug.LogError("gemText is null!");
         }
     }
 
+
+    [System.Serializable]
+    private class GemData
+    {
+        public int gemCount;
+    }
 }

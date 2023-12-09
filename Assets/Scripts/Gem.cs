@@ -8,14 +8,10 @@ public class Gem : MonoBehaviour
     {
         if (other.CompareTag("AirCharacter") || other.CompareTag("EarthCharacter"))
         {
-            GemManager.AddGems(gemValue);
-            Debug.Log("GemCount: " + GemManager.gemCount);
-
-            // Дополнительно можно воспроизвести анимацию или звук сбора гема
+            GemCounter.Instance.AddGems(gemValue);
+            Debug.Log("GemCount: " + GemCounter.Instance.GemCount);
 
             Destroy(gameObject);
-
-            PlayerPrefs.SetInt("GemCounter", PlayerPrefs.GetInt("GemCounter", 0) + 1);
         }
     }
 }
