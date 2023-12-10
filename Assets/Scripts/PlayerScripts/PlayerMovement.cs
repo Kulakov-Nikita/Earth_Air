@@ -8,6 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public AirCharScript AirCharacter;
     public EarthCharScript EarthCharacter;
 
+    Rigidbody2D AirBody;
+    Rigidbody2D EarthBody;
+
+    float AirDirection;
+    float EarthDirection;
+
+    float AirSpeed;
+    float EarthSpeed;
+
+
+    private float ActivePlayerDirection = 0;
 
     private void Awake()
     {
@@ -21,27 +32,47 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        var AirBody = AirCharacter.getBody();
-        var EarthBody = EarthCharacter.getBody();
-        var AirDirection = AirCharacter.GetDirection();
-        var EarthDirection = EarthCharacter.GetDirection();
+         AirBody = AirCharacter.getBody();
+         EarthBody = EarthCharacter.getBody();
 
-        var AirSpeed = AirCharacter.GetSpeed();
-        var EarthSpeed = EarthCharacter.GetSpeed();
-        var AirAnimator = AirCharacter.GetAnimator();
-        var EarthAnimator = EarthCharacter.GetAnimator();
+         AirDirection = AirCharacter.GetDirection();
+         EarthDirection = EarthCharacter.GetDirection();
+
+         AirSpeed = AirCharacter.GetSpeed();
+         EarthSpeed = EarthCharacter.GetSpeed();
+
+        //var AirAnimator = AirCharacter.GetAnimator();
+        //var EarthAnimator = EarthCharacter.GetAnimator();
 
         //Debug.Log(Input.GetAxisRaw("Horizontal"));
-        if(AirCharacter.isAirActive) AirDirection = Input.GetAxisRaw("Horizontal");
-        else EarthDirection = Input.GetAxisRaw("Horizontal");
-        AirBody.velocity = new Vector2(AirDirection * AirSpeed * Time.fixedDeltaTime, AirBody.velocity.y);
-        //AirAnimator.SetFloat("speed", Mathf.Abs(AirDirection));
+        if (AirCharacter.isAirActive)
+        {
+            AirDirection = Input.GetAxisRaw("Horizontal");
+            ActivePlayerDirection = AirDirection;
+            AirBody.velocity = new Vector2(ActivePlayerDirection * AirSpeed * Time.fixedDeltaTime, AirBody.velocity.y);
+        }
+        else
+        {
+            EarthDirection = Input.GetAxisRaw("Horizontal");
+            ActivePlayerDirection = EarthDirection;
+            EarthBody.velocity = new Vector2(ActivePlayerDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
+        }
 
-        //сделать то же с землей
-        EarthBody.velocity = new Vector2(EarthDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
-        //EarthAnimator.SetFloat("speed", Mathf.Abs(EarthDirection));
-        //на пробел в свитчере отключать управление героям
+    }
 
+    public void ChangeDirection(int ButtonDirection)
+    {
+        ActivePlayerDirection = ButtonDirection;
+
+        
+            AirDirection = Input.GetAxisRaw("Horizontal");
+            AirBody.velocity = new Vector2(ActivePlayerDirection * AirSpeed * Time.fixedDeltaTime, AirBody.velocity.y);
+        
+       
+        
+            EarthDirection = Input.GetAxisRaw("Horizontal");
+            EarthBody.velocity = new Vector2(ActivePlayerDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
+        
     }
 
 

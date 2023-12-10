@@ -6,7 +6,11 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 [CreateAssetMenu]
 public class WindPillarAbility : Ability
 {
-    WindPillarSpawner spawner = GameObject.FindGameObjectWithTag("AirCharacter").GetComponent<WindPillarSpawner>();
+    WindPillarSpawner spawner;
+    private void OnEnable()
+    {
+        spawner = GameObject.FindGameObjectWithTag("AirCharacter").GetComponent<WindPillarSpawner>();
+    }
 
     public override void Activate(GameObject parent)
     {

@@ -18,7 +18,7 @@ public class AirAbilityHolder : MonoBehaviour
     }
 
     private AbilityState state = AbilityState.ready;
-    [SerializeField] private KeyCode key = KeyCode.Space;
+    [SerializeField] private KeyCode key = KeyCode.F;
 
     void Start()
     {
