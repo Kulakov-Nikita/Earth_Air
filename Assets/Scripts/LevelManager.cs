@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    //[SerializeField] private AirCharScript playerAir;
-    //[SerializeField] private EarthCharScript playerEarth;
+    [SerializeField] private AirCharScript playerAir;
+    [SerializeField] private EarthCharScript playerEarth;
     [SerializeField] private Fan fan;
     [SerializeField] private GameObject Wind;
     private int ReadyPlayerCounter = 0;
@@ -18,10 +18,12 @@ public class LevelManager : MonoBehaviour
     public Cell.CellType[,] LevelMap;
     public GameObject LeftDownCorner;
 
-    //public void CreateWind()
-    //{
-    //    if (fan.isPlayerInside && playerAir.isAirActive)Instantiate(Wind, fan.transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-    //}
+    public void CreateWind()
+    {
+        Debug.Log(fan.isPlayerInside +" "+ playerAir.isAirActive);
+        if (fan.isPlayerInside && playerAir.isAirActive) Instantiate(Wind, fan.transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+    }
+
     public void loadingLevel()
     {
         for (int y = 0; y < LevelSizeY; y++)

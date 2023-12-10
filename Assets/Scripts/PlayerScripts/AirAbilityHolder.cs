@@ -28,11 +28,17 @@ public class AirAbilityHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+    }
 
+    public void OnActivate()
+    {
+        Debug.Log("OnActivateAir");
         switch (state)
         {
             case AbilityState.ready:
-                if (Input.GetKeyDown(key) && !airCharScript.isAirActive)
+                Debug.Log("Ready");
+                if (!airCharScript.isAirActive)
                 {
                     ability.Activate(airChar);
                     state = AbilityState.active;
@@ -62,6 +68,6 @@ public class AirAbilityHolder : MonoBehaviour
                 }
                 break;
         }
-
     }
+
 }

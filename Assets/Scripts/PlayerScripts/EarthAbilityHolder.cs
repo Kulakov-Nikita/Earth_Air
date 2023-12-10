@@ -39,30 +39,36 @@ public class EarthAbilityHolder : MonoBehaviour
     void Update()
     {
         
-            switch(state)
-            {
-                case AbilityState.ready:
-                    if (isAbilityActive && earthCharSc.isAirActive)
-                    {
-                        ability.Activate(earthChar);
-                        state = AbilityState.active;
-                        activeTime = ability.activeTime;
-                        isAbilityActive = false;
-                    }
-                    break;
-                case AbilityState.active:
-                    if(activeTime > 0)
-                    {
-                        activeTime -= Time.deltaTime;
-                    } 
-                    else
-                    {
+    }
+
+    public void OnActivate()
+    {
+        Debug.Log("OnActivateEarth");
+        switch (state)
+        {
+            case AbilityState.ready:
+                Debug.Log("Ready");
+                if (earthCharSc.isAirActive)
+                {
+                    ability.Activate(earthChar);
+                    state = AbilityState.active;
+                    activeTime = ability.activeTime;
+                    isAbilityActive = false;
+                }
+                break;
+            case AbilityState.active:
+                if (activeTime > 0)
+                {
+                    activeTime -= Time.deltaTime;
+                }
+                else
+                {
                     state = AbilityState.cooldown;
                     cooldownTime = ability.cooldownTime;
                     ability.Disactivate(earthChar);
-                    }
-                    break;
-                case AbilityState.cooldown:
+                }
+                break;
+            case AbilityState.cooldown:
                 if (cooldownTime > 0)
                 {
                     cooldownTime -= Time.deltaTime;
@@ -73,7 +79,6 @@ public class EarthAbilityHolder : MonoBehaviour
                     activeTime = 2f;
                 }
                 break;
-            }
-            
+        }
     }
 }
