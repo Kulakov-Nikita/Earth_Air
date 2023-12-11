@@ -2220,7 +2220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AirCharacter: {fileID: 673200080}
   EarthCharacter: {fileID: 1646964480}
-  AirAbility: {fileID: 0}
 --- !u!114 &2044221158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,6 +2385,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469415076485844458, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915390932676458755, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
+      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

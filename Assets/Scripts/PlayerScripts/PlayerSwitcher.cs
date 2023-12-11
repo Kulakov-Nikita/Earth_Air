@@ -10,13 +10,13 @@ public class PlayerSwitcher : MonoBehaviour
     [SerializeField] private AirCharScript AirCharacter;
     [SerializeField] private EarthCharScript EarthCharacter;
     private bool isAirActive = true;
-    GameObject AirButton; 
-    GameObject EarthButton;
+    [SerializeField] private GameObject AirButton;
+    [SerializeField] private GameObject EarthButton;
 
     private void Awake()
     {
-        AirButton = GameObject.Find("Ability-air");
-        EarthButton = GameObject.Find("Ability-earth");
+       // AirButton = GameObject.Find("Ability-air");
+       // EarthButton = GameObject.Find("Ability-earth");
 
         if (AirButton != null)
         {
@@ -30,28 +30,35 @@ public class PlayerSwitcher : MonoBehaviour
         Debug.Log(isAirActive);
     }
 
+    private void Start()
+    {
+        AirCharacter.isAirActive = true;
+        EarthCharacter.isAirActive = false;
+        isAirActive = true;
+    }
 
     public void OnSwitchPlayer()
     {
-        Debug.Log(isAirActive);
+
         if (isAirActive)
         {
             isAirActive = false;
-            Debug.Log(isAirActive);
+            AirButton.SetActive(true);
+            EarthButton.SetActive(false);
+            Debug.Log("PlayerSwitcher: Air is NOT Active");
         }
         else
         {
             isAirActive = true;
-            Debug.Log(isAirActive);
+            AirButton.SetActive(false);
+            EarthButton.SetActive(true);
+            Debug.Log("PlayerSwitcher: Air is Active");
         }
 
         AirCharacter.isAirActive = isAirActive;
         EarthCharacter.isAirActive = !isAirActive;
 
-        Debug.Log(isAirActive);
 
-        AirButton.SetActive(!isAirActive);
-        EarthButton.SetActive(isAirActive);
     }
 
 }

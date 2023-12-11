@@ -15,6 +15,7 @@ public class Fan : MonoBehaviour
         if (collision.gameObject.tag == "AirCharacter")
         {
             isPlayerInside = true;
+            Debug.Log("Fan: Player enter.");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -22,6 +23,7 @@ public class Fan : MonoBehaviour
         if (collision.gameObject.tag == "AirCharacter")
         {
             isPlayerInside = false;
+            Debug.Log("Fan: Player exit.");
         }
     }
 }

@@ -20,8 +20,8 @@ public class LevelManager : MonoBehaviour
 
     public void CreateWind()
     {
-        Debug.Log(fan.isPlayerInside +" "+ playerAir.isAirActive);
-        if (fan.isPlayerInside && playerAir.isAirActive) Instantiate(Wind, fan.transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        Debug.Log("Level Manager [CreateWind]: " + "(fan.isPlayerInside=" + fan.isPlayerInside + ") (playerAir.isAirActive=" + playerAir.isAirActive + ")");
+        if (fan.isPlayerInside && !playerAir.isAirActive) Instantiate(Wind, fan.transform.position + new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
     }
 
     public void loadingLevel()
