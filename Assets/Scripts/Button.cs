@@ -13,7 +13,7 @@ public class Button : MonoBehaviour
         if (!isPressed)
         {
             isPressed = true;
-            transform.parent.transform.position += new Vector3(0, -0.1f, 0);
+            transform.position += new Vector3(0, -0.1f, 0);
             buttonPressed.Invoke();
         }
 
@@ -23,7 +23,7 @@ public class Button : MonoBehaviour
         if (isPressed)
         {
             isPressed = false;
-            transform.parent.transform.position += new Vector3(0, 0.1f, 0);
+            transform.position += new Vector3(0, 0.1f, 0);
             buttonReleased.Invoke();
         }
     }

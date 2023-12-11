@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Cell : MonoBehaviour
 {
-    public enum CellType { Empty, Dirt, Grass, Slope1, Slope2, Door, Gem };
-    public static int NumberOfCellTypes = 7;
+    public enum CellType { Empty, Dirt, Grass, Slope1, Slope2, Door, Gem, Box, Button };
+    public static int NumberOfCellTypes = 9;
 
     public ResourseManager resourseManager;
 

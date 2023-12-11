@@ -255,6 +255,7 @@ MonoBehaviour:
   Slope2: {fileID: 21300024, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   Door: {fileID: 21300000, guid: 898b17bd778c31548ae4b6cf94424811, type: 2}
   Gem: {fileID: 21300000, guid: 8486a961646cb2a4ba05f5f8f3ffe055, type: 2}
+  _Button: {fileID: 21300000, guid: 64a7968239cb4f84088f36e92d4a2a17, type: 2}
 --- !u!114 &19021788
 MonoBehaviour:
   m_ObjectHideFlags: 0

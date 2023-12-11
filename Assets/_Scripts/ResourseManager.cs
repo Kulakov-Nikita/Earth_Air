@@ -11,7 +11,9 @@ public class ResourseManager : MonoBehaviour
     public Sprite Slope2;
     public Sprite Door;
     public Sprite Gem;
-    
+    public Sprite Box;
+    public Sprite _Button;
+
     public Sprite GetSprite(Cell.CellType cellType)
     {
         switch(cellType)
@@ -23,6 +25,8 @@ public class ResourseManager : MonoBehaviour
             case Cell.CellType.Slope2: return Slope2;
             case Cell.CellType.Door: return Door;
             case Cell.CellType.Gem: return Gem;
+            case Cell.CellType.Box: return Box;
+            case Cell.CellType.Button: return _Button;
             default:return Empty;  
         }
     }
