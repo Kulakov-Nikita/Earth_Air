@@ -44,6 +44,7 @@ public class GameMenuManager : MonoBehaviour
     }
     public void NextLevel()
     {
-        SceneManager.LoadSceneAsync("Main Menu");
+        if (levelName == "1") SceneManager.LoadSceneAsync("5");
+        if (levelName == "2")SceneManager.LoadSceneAsync("Main Menu");
     }
 }

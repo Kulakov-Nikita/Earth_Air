@@ -79,7 +79,8 @@ public class MenuManager : MonoBehaviour
     public void StartLevel(int levelNumber)
     {
         //SceneManager.LoadSceneAsync(""+levelNumber.ToString());
-        SceneManager.LoadSceneAsync("4");
+        if (levelNumber == 1)SceneManager.LoadSceneAsync("4");
+        if (levelNumber == 2) SceneManager.LoadSceneAsync("5");
     }
 
     public void QuitGame()
