@@ -8,6 +8,7 @@ public class EarthCharScript : MonoBehaviour
     private float direction = 0;
     private Rigidbody2D body;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     [SerializeField] float speed = 400;
     bool isFacingRight = true;
     public bool isSteady = false;
@@ -18,6 +19,7 @@ public class EarthCharScript : MonoBehaviour
         controls = new PlayerControls();
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         controls.Land.Move.performed += ctx => direction = ctx.ReadValue<float>();
     }
@@ -26,6 +28,14 @@ public class EarthCharScript : MonoBehaviour
     {
         if (isFacingRight && direction < 0 || !isFacingRight && direction > 0)
             Flip();
+
+
+        if (!isSteady && body.velocity.magnitude > 0.1f)
+        {
+            float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.up = Vector3.up;
+        }
     }
 
     private void Flip()

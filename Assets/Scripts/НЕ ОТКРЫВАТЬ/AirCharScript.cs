@@ -10,6 +10,7 @@ public class AirCharScript : MonoBehaviour
     private Animator animator;
     public bool isAirActive = true;
     [SerializeField] float speed = 400;
+    public bool isSteady = false;
     bool isFacingRight = true;
 
 
@@ -26,6 +27,13 @@ public class AirCharScript : MonoBehaviour
     {
         if (isFacingRight && direction < 0 || !isFacingRight && direction > 0)
             Flip();
+
+        if (!isSteady && body.velocity.magnitude > 0.1f)
+        {
+            float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.up = Vector3.up;
+        }
     }
 
     private void Flip()
