@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
     public AirCharScript AirCharacter;
     public EarthCharScript EarthCharacter;
+
+    public int AbilityCost = 1;
+    public UnityEvent OnAirUseAbility = new UnityEvent();
+    public UnityEvent OnEarthUseAbility = new UnityEvent();
+
+    [SerializeField] private GemCounter gems;
+    [SerializeField] private LevelManager levelManager;
 
     Rigidbody2D AirBody;
     Rigidbody2D EarthBody;
@@ -60,6 +68,22 @@ public class PlayerMovement : MonoBehaviour
             EarthBody.velocity = new Vector2(ActivePlayerDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
         }
 
+    }
+    public void UseAirAbility()
+    {
+        if (gems.GemCount > 0 && levelManager.AirCanUseAbility())
+        {
+            gems.AddGems(-1 * AbilityCost);
+            OnAirUseAbility.Invoke();
+        }
+    }
+    public void UseEarthAbility()
+    {
+        if (gems.GemCount > 0)
+        {
+            gems.AddGems(-1 * AbilityCost);
+            OnEarthUseAbility.Invoke();
+        }
     }
 
     public void ChangeDirection(int ButtonDirection)

@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     public Cell.CellType[,] LevelMap;
     public GameObject LeftDownCorner;
 
+    public bool AirCanUseAbility()
+    {
+        return fan.isPlayerInside && !playerAir.isAirActive;
+    }
     public void CreateWind()
     {
         Debug.Log("Level Manager [CreateWind]: " + "(fan.isPlayerInside=" + fan.isPlayerInside + ") (playerAir.isAirActive=" + playerAir.isAirActive + ")");
