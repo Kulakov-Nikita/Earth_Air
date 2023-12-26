@@ -9,6 +9,7 @@ public class GameMenuManager : MonoBehaviour
     public GameObject GameOverMenu;
     public GameObject LevelCompleteMenu;
     public GameObject PauseMenu;
+    public PlayerMovement playerMovement;
     public string levelName;
 
     public void ReturnToMenu()
@@ -17,34 +18,39 @@ public class GameMenuManager : MonoBehaviour
     }
     public void Replay()
     {
-        SceneManager.LoadSceneAsync("" + levelName);
+        SceneManager.LoadSceneAsync("5");
     }
     public void LevelComplete()
     {
+        GameMenu.SetActive(false);
         LevelCompleteMenu.SetActive(true);
+        playerMovement.GameIsGoingOn = false;
     }
     public void GameOver()
     {
         GameMenu.SetActive(false);
         GameOverMenu.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        playerMovement.GameIsGoingOn = true;
     }
     public void Pause()
     {
         GameMenu.SetActive(false);
         PauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        playerMovement.GameIsGoingOn = false;
     }
 
     public void Continue()
     {
         GameMenu.SetActive(true);
         PauseMenu.SetActive(false);
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
+        playerMovement.GameIsGoingOn = true;
     }
     public void NextLevel()
     {
         if (levelName == "1") SceneManager.LoadSceneAsync("5");
-        if (levelName == "2")SceneManager.LoadSceneAsync("Main Menu");
+        if (levelName == "2") SceneManager.LoadSceneAsync("Main Menu");
     }
 }

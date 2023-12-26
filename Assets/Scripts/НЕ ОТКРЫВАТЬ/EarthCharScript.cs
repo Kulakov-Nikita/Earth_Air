@@ -49,6 +49,7 @@ public class EarthCharScript : MonoBehaviour
     public float GetSpeed() { return speed; }
     public Rigidbody2D getBody() { return body; }
     public float GetDirection() { return direction; }
+    public void SetDirection(float dir) { direction = dir; }
     public Animator GetAnimator() { return animator; }
     public bool GetIsSteady() { return isSteady; }
     public void SetIsSteady(bool isSteady) { this.isSteady = isSteady; }

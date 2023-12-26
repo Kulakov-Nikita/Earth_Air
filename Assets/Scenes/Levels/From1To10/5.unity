@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4915390932676458755, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1005,6 +1009,7 @@ MonoBehaviour:
   GameOverMenu: {fileID: 1147129043}
   LevelCompleteMenu: {fileID: 775094740}
   PauseMenu: {fileID: 1288449564}
+  playerMovement: {fileID: 992693501}
   levelName: 
 --- !u!114 &992693500
 MonoBehaviour:
@@ -1066,6 +1071,8 @@ MonoBehaviour:
         m_CallState: 2
   gems: {fileID: 152164289}
   levelManager: {fileID: 992693497}
+  PlayerSpeed: 2
+  GameIsGoingOn: 1
 --- !u!114 &992693502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,11 +1115,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!212 &1128787772 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3280367632955547743, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
-  m_PrefabInstance: {fileID: 23512265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1135009482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6558377537218413403, guid: f3df5bed1a38ef44a9c1f9ec4412aa99, type: 3}
@@ -1163,21 +1165,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1901083406}
-          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-          m_MethodName: set_flipX
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1128787772}
-          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-          m_MethodName: set_flipX
+        - m_Target: {fileID: 992693501}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: RotatePlayer
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1864,21 +1854,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1901083406}
-          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-          m_MethodName: set_flipX
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1128787772}
-          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-          m_MethodName: set_flipX
+        - m_Target: {fileID: 992693501}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: RotatePlayer
           m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

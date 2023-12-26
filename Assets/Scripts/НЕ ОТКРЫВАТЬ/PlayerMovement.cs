@@ -22,82 +22,81 @@ public class PlayerMovement : MonoBehaviour
     float AirDirection;
     float EarthDirection;
 
-    float AirSpeed;
-    float EarthSpeed;
+    public float PlayerSpeed = 50;
+    public bool GameIsGoingOn = true;
 
+
+    public void RotatePlayer(bool flipX)
+    {
+        if (GameIsGoingOn)
+        {
+            if (AirCharacter.isAirActive)
+            {
+                EarthCharacter.GetComponent<SpriteRenderer>().flipX = flipX;
+            }
+            else
+            {
+                AirCharacter.GetComponent<SpriteRenderer>().flipX = flipX;
+            }
+        }
+    }
 
     private float ActivePlayerDirection = 0;
-
-    private void Awake()
-    {
-        //AirCharacter = GameObject.FindGameObjectWithTag("AirCharacter").GetComponent<AirCharScript>();
-        //EarthCharacter = GameObject.FindGameObjectWithTag("EarthCharacter").GetComponent<EarthCharScript>();
-
-
-    }
     private void Start()
     {
+        AirBody = AirCharacter.getBody();
+        EarthBody = EarthCharacter.getBody();
         Debug.Log("PlayerMovement: AirCharacter.isAirActive = " + AirCharacter.isAirActive);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-         AirBody = AirCharacter.getBody();
-         EarthBody = EarthCharacter.getBody();
-
-         AirDirection = AirCharacter.GetDirection();
-         EarthDirection = EarthCharacter.GetDirection();
-
-         AirSpeed = AirCharacter.GetSpeed();
-         EarthSpeed = EarthCharacter.GetSpeed();
-
-        Debug.Log("PlayerMovement [FixedUpdate]: AirCharacter.isAirActive = " + AirCharacter.isAirActive);
-        if (AirCharacter.isAirActive)
+        if (GameIsGoingOn)
         {
-            Debug.Log(1111);
-            //AirDirection = Input.GetAxisRaw("Horizontal");
-            ActivePlayerDirection = AirDirection;
-            AirBody.velocity = new Vector2(ActivePlayerDirection * AirSpeed * Time.fixedDeltaTime, AirBody.velocity.y);
-        }
-        else
-        {
-            //EarthDirection = Input.GetAxisRaw("Horizontal");
-            ActivePlayerDirection = EarthDirection;
-            EarthBody.velocity = new Vector2(ActivePlayerDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
-        }
+            AirBody.velocity = new Vector2(PlayerSpeed * AirDirection, AirBody.velocity.y);
+            EarthBody.velocity = new Vector2(PlayerSpeed * EarthDirection, EarthBody.velocity.y);
 
+            AirBody.transform.rotation = Quaternion.identity;
+            EarthBody.transform.rotation = Quaternion.identity;
+        }
     }
     public void UseAirAbility()
     {
-        if (gems.GemCount > 0 && levelManager.AirCanUseAbility())
+        if (GameIsGoingOn)
         {
-            gems.AddGems(-1 * AbilityCost);
-            OnAirUseAbility.Invoke();
+            if (gems.GemCount > 0 && levelManager.AirCanUseAbility())
+            {
+                gems.AddGems(-1 * AbilityCost);
+                OnAirUseAbility.Invoke();
+            }
         }
     }
     public void UseEarthAbility()
     {
-        if (gems.GemCount > 0)
+        if (GameIsGoingOn)
         {
-            gems.AddGems(-1 * AbilityCost);
-            OnEarthUseAbility.Invoke();
+            if (gems.GemCount > 0)
+            {
+                gems.AddGems(-1 * AbilityCost);
+                OnEarthUseAbility.Invoke();
+            }
         }
     }
 
     public void ChangeDirection(int ButtonDirection)
     {
-        ActivePlayerDirection = ButtonDirection;
-
-           // AirDirection = Input.GetAxisRaw("Horizontal");
-            AirBody.velocity = new Vector2(ActivePlayerDirection * AirSpeed * Time.fixedDeltaTime, AirBody.velocity.y);
-        
-       
-        
-            //EarthDirection = Input.GetAxisRaw("Horizontal");
-            EarthBody.velocity = new Vector2(ActivePlayerDirection * EarthSpeed * Time.fixedDeltaTime, EarthBody.velocity.y);
-        
+        if (GameIsGoingOn)
+        {
+            if (AirCharacter.isAirActive)
+            {
+                EarthDirection = ButtonDirection;
+            }
+            else
+            {
+                AirDirection = ButtonDirection;
+            }
+        }
     }
 
 
