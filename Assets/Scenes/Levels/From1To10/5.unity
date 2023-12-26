@@ -270,6 +270,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2136508325988109400, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1128787767}
+    - targetCorrespondingSourceObject: {fileID: 2136508325988109400, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1128787774}
   m_SourcePrefab: {fileID: 100100000, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
 --- !u!1 &62427035
 GameObject:
@@ -838,6 +841,40 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a08965c1ffe3539418287e851ae5a96a, type: 3}
+--- !u!1 &985707268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4059929864034964725, guid: a1b28a5609c12374da32fe481743dcde, type: 3}
+  m_PrefabInstance: {fileID: 2115830514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &985707273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985707268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1128787774}
+          m_TargetAssemblyTypeName: JumpController, Assembly-CSharp
+          m_MethodName: Jump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &992693493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1126,7 @@ MonoBehaviour:
   EarthCharacter: {fileID: 1693374327}
   AirButton: {fileID: 248427380}
   EarthButton: {fileID: 1690957874}
+  AirJumpButton: {fileID: 985707268}
 --- !u!114 &1128787760 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7919410410972462084, guid: d4dbf8ce11075b64fad10e74ca871e3e, type: 3}
@@ -1115,6 +1153,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1128787774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172968286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b00bd01f9f653249b27f421a1611fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1135009482 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6558377537218413403, guid: f3df5bed1a38ef44a9c1f9ec4412aa99, type: 3}
@@ -2098,6 +2148,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2339569}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4059929864034964725, guid: a1b28a5609c12374da32fe481743dcde, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 985707273}
     - targetCorrespondingSourceObject: {fileID: 649209183526241160, guid: a1b28a5609c12374da32fe481743dcde, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2086707334}

@@ -12,6 +12,7 @@ public class PlayerSwitcher : MonoBehaviour
     private bool isAirActive = true;
     [SerializeField] private GameObject AirButton;
     [SerializeField] private GameObject EarthButton;
+    [SerializeField] private GameObject AirJumpButton;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class PlayerSwitcher : MonoBehaviour
         AirCharacter.isAirActive = true;
         EarthCharacter.isAirActive = false;
         isAirActive = true;
+        AirJumpButton.SetActive(false);
     }
 
     public void OnSwitchPlayer()
@@ -45,10 +47,12 @@ public class PlayerSwitcher : MonoBehaviour
             isAirActive = false;
             AirButton.SetActive(true);
             EarthButton.SetActive(false);
+            AirJumpButton.SetActive(true);
             Debug.Log("PlayerSwitcher: Air is NOT Active");
         }
         else
         {
+            AirJumpButton.SetActive(false);
             isAirActive = true;
             AirButton.SetActive(false);
             EarthButton.SetActive(true);
