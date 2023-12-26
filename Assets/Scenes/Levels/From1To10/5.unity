@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 838382726639244726, guid: 7210b1c14e8ccad44b2f0adbbd2499e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -52
+      objectReference: {fileID: 0}
     - target: {fileID: 917929640179178056, guid: 7210b1c14e8ccad44b2f0adbbd2499e6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 4.2817383
@@ -1360,6 +1364,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4704143220227367307, guid: 7210b1c14e8ccad44b2f0adbbd2499e6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4888836437706140193, guid: 7210b1c14e8ccad44b2f0adbbd2499e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.29126
+      objectReference: {fileID: 0}
     - target: {fileID: 7835598895013318561, guid: 7210b1c14e8ccad44b2f0adbbd2499e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1390,7 +1402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8347634475907838775, guid: 7210b1c14e8ccad44b2f0adbbd2499e6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2164,12 +2176,12 @@ SceneRoots:
   m_Roots:
   - {fileID: 992693496}
   - {fileID: 859685692}
-  - {fileID: 2115830514}
-  - {fileID: 152164292}
   - {fileID: 795251661}
   - {fileID: 1348556430}
-  - {fileID: 401088596}
   - {fileID: 981584128}
+  - {fileID: 2115830514}
+  - {fileID: 152164292}
+  - {fileID: 401088596}
   - {fileID: 62427038}
   - {fileID: 23512265}
   - {fileID: 1696199554}
