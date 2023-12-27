@@ -18,7 +18,16 @@ public class GameMenuManager : MonoBehaviour
     }
     public void Replay()
     {
-        SceneManager.LoadSceneAsync("5");
+        if (levelName == "1") SceneManager.LoadSceneAsync("4");
+        if (levelName == "2") SceneManager.LoadSceneAsync("5");
+        if (levelName == "3") SceneManager.LoadSceneAsync("6");
+        if (levelName == "4") SceneManager.LoadSceneAsync("7");
+        if (levelName == "5") SceneManager.LoadSceneAsync("8");
+        if (levelName == "6") SceneManager.LoadSceneAsync("9");
+        if (levelName == "7") SceneManager.LoadSceneAsync("10");
+        if (levelName == "8") SceneManager.LoadSceneAsync("11");
+        if (levelName == "9") SceneManager.LoadSceneAsync("12");
+        if (levelName == "10") SceneManager.LoadSceneAsync("13");
     }
     public void LevelComplete()
     {
@@ -51,6 +60,13 @@ public class GameMenuManager : MonoBehaviour
     public void NextLevel()
     {
         if (levelName == "1") SceneManager.LoadSceneAsync("5");
-        if (levelName == "2") SceneManager.LoadSceneAsync("Main Menu");
+        if (levelName == "2") SceneManager.LoadSceneAsync("6");
+        if (levelName == "3") SceneManager.LoadSceneAsync("7");
+        if (levelName == "4") SceneManager.LoadSceneAsync("8");
+        if (levelName == "5") SceneManager.LoadSceneAsync("10");
+        if (levelName == "6") SceneManager.LoadSceneAsync("11");
+        if (levelName == "7") SceneManager.LoadSceneAsync("12");
+        if (levelName == "8") SceneManager.LoadSceneAsync("13");
+        if (levelName == "9") SceneManager.LoadSceneAsync("Main Menu");
     }
 }

@@ -81,6 +81,14 @@ public class MenuManager : MonoBehaviour
         //SceneManager.LoadSceneAsync(""+levelNumber.ToString());
         if (levelNumber == 1)SceneManager.LoadSceneAsync("4");
         if (levelNumber == 2) SceneManager.LoadSceneAsync("5");
+        if (levelNumber == 3) SceneManager.LoadSceneAsync("6");
+        if (levelNumber == 4) SceneManager.LoadSceneAsync("7");
+        if (levelNumber == 5) SceneManager.LoadSceneAsync("8");
+        if (levelNumber == 6) SceneManager.LoadSceneAsync("9");
+        if (levelNumber == 7) SceneManager.LoadSceneAsync("10");
+        if (levelNumber == 8) SceneManager.LoadSceneAsync("11");
+        if (levelNumber == 9) SceneManager.LoadSceneAsync("12");
+        if (levelNumber == 10) SceneManager.LoadSceneAsync("13");
     }
 
     public void QuitGame()
