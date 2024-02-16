@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 513571397292889128}
   - component: {fileID: 5254792160967506084}
   - component: {fileID: 1822034457166294394}
+<<<<<<< Updated upstream
   - component: {fileID: 8938287924564585923}
+=======
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -108,7 +111,11 @@ MonoBehaviour:
   CharacterGoOut:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
   animator: {fileID: 8938287924564585923}
+=======
+  animator: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!61 &1822034457166294394
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,6 +161,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22, y: 0.33}
   m_EdgeRadius: 0
+<<<<<<< Updated upstream
 --- !u!95 &8938287924564585923
 Animator:
   serializedVersion: 5
@@ -175,3 +183,5 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+=======
+>>>>>>> Stashed changes

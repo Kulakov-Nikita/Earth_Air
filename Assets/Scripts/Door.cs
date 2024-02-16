@@ -11,14 +11,22 @@ public class Door : MonoBehaviour
     public bool doorForAir = true;
     public UnityEvent CharacterGoIn = new UnityEvent();
     public UnityEvent CharacterGoOut = new UnityEvent();
+<<<<<<< Updated upstream
     public Animator animator;
+=======
+    //public Animator animator;
+>>>>>>> Stashed changes
 
 
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
         sp.sprite = closedDoor;
+<<<<<<< Updated upstream
         animator = GetComponent<Animator>();
+=======
+        //animator = GetComponent<Animator>();
+>>>>>>> Stashed changes
     }
 
     private void Start()
@@ -32,14 +40,22 @@ public class Door : MonoBehaviour
     {
         sp.sprite = openedDoor;
         isOpen = true;
+<<<<<<< Updated upstream
         animator.SetBool("OPEN", true);
+=======
+        //animator.SetBool("OPEN", true);
+>>>>>>> Stashed changes
     }
 
     public void onToggleReleased()
     {
         sp.sprite = closedDoor;
         isOpen = false;
+<<<<<<< Updated upstream
         animator.SetBool("OPEN", false);
+=======
+       // animator.SetBool("OPEN", false);
+>>>>>>> Stashed changes
     }
 
     private void OnTriggerEnter2D(Collider2D other)
